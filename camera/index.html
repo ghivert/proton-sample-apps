@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Camera Test</title>
+    <link rel="stylesheet" href="app.css">
+    <script src="jquery.js"></script>
+    <script src="app.js"></script>
+  </head>
+  <body>
+    <video id="camera" autoplay> </video>
+  </body>
+  <script>
+    navigator.webkitGetUserMedia(
+      {video: true}, function(stream) {
+        document.getElementById('camera').src = URL.createObjectURL(stream);
+      }, function() {
+        alert('could not connect stream');
+      }
+    )
+  </script>
+</html>
